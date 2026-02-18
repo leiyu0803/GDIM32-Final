@@ -21,4 +21,5 @@ Put your individual final Devlog here.
 Put your individual final Devlog here.
 
 ## Open-Source Assets
-Cite any open-source assets here. Put them in a LIST, and use correctly formatted LINKS.
+[Skybox Series Free - Avionx](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
+[Ice Cream Parlor - BrimanFunkman](https://sketchfab.com/3d-models/ice-cream-parlor-e508c4a4e3864aedbfe1e6a7f0f8d6ec)
