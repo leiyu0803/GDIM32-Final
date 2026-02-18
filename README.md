@@ -1,11 +1,11 @@
 # GDIM32-Final
 ## Check-In
 ### Team Member Name 1
-Put your individual check-in Devlog here.
+Haoyi Zhang
 ### Team Member Name 2
-Put your individual check-in Devlog here.
+Pengcheng Qi
 ### Team Member Name 3
-Put your individual check-in Devlog here.
+Allen Gu
 
 
 ## Final Submission
