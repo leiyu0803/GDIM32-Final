@@ -23,7 +23,6 @@ public class CameraMovement : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * _mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
         playerBody.Rotate(Vector3.up * mouseX);
-        Debug.Log(Vector3.up * mouseX);
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -60f, 60f);// limit the angle
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
