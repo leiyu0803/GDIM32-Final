@@ -25,7 +25,7 @@ public class CameraMovement : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
         Debug.Log(Vector3.up * mouseX);
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -40f, 40f);// limit the angle
+        xRotation = Mathf.Clamp(xRotation, -60f, 60f);// limit the angle
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 }
