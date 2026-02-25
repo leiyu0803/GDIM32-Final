@@ -13,13 +13,15 @@ public enum IcecreamFlavor
 {
     Chocolate,
     Strawberry,
-    Vanilla
+    Vanilla,
+    None
 }
 
 public enum ContainerType
 {
     Cone,
-    Cup
+    Cup,
+    None
 }
 
 public class PlayerController : MonoBehaviour
@@ -35,9 +37,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _WarningUI;
     [SerializeField] TMP_Text _warningText;
 
-    private IcecreamStage _currentStage = IcecreamStage.None;
-    private IcecreamFlavor _currentFlavor;
-    private ContainerType _currentContainer;
+    public IcecreamStage _currentStage = IcecreamStage.None;
+    public IcecreamFlavor _currentFlavor;
+    public ContainerType _currentContainer;
     public static PlayerController Instance { get; private set; }
     private void Awake()
     {
@@ -50,6 +52,11 @@ public class PlayerController : MonoBehaviour
 
         InteractableCones.OnPickUpCones += PickUpCones;
         InteractableCups.OnPickUpCups += PickUpCup;
+        InteractableChocolate.OnPickUpChocolate += PickUpChocolate;
+        InteractableStrawberry.OnPickUpStrawberry += PickUpStrawberry;
+        InteractableVanilla.OnPickUpVanilla += PickUpVanilla;
+        InteractableTrashBin.OnPickUpTrashBin += Trashcan;
+        GameController.OnOrderCompleted += Trashcan;
     }
 
 
@@ -75,7 +82,16 @@ public class PlayerController : MonoBehaviour
                 }
             }
             _pickupUI.SetActive(true);
-            _pickupText.text = "Press F to pick up " + closestItem.name;
+            if(closestItem.tag == "TrashBin") 
+            {
+                _pickupText.text = "Press F to throw away your ice cream";
+            }
+            else if(closestItem.tag == "Submit")
+            {
+                _pickupText.text = "Press F to submit your order";
+            }
+            else
+                _pickupText.text = "Press F to pick up " + closestItem.name;
             if (Input.GetKeyDown(KeyCode.F))
             {
                 closestItem.GetComponent<InteractableBase>().Interact();
@@ -169,6 +185,41 @@ public class PlayerController : MonoBehaviour
         else if (_currentStage == IcecreamStage.Finished)
         {
             OnDisplayWarning?.Invoke("You already have an ice cream!");
+        }
+    }
+
+    private void Trashcan()
+    {
+        if(_currentStage == IcecreamStage.None)
+        {
+            OnDisplayWarning?.Invoke("You don't have anything to throw away!");
+            return;
+        }
+        _currentStage = IcecreamStage.None;
+
+    }
+
+    public ContainerType GetCurrentContainer()
+    {
+        if (_currentStage == IcecreamStage.Container || _currentStage == IcecreamStage.Finished)
+        {
+            return _currentContainer;
+        }
+        else
+        {
+            return ContainerType.None;
+        }
+    }
+
+    public IcecreamFlavor GetCurrentFlavor()
+    {
+        if (_currentStage == IcecreamStage.Finished)
+        {
+            return _currentFlavor;
+        }
+        else
+        {
+            return IcecreamFlavor.None;
         }
     }
 }

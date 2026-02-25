@@ -8,6 +8,7 @@ public class WarningUI : MonoBehaviour
     private void Awake()
     {
         PlayerController.OnDisplayWarning += StartDisplay;
+        GameController.OnDisplayWarning += StartDisplay;
         gameObject.SetActive(false);
     }
     private void StartDisplay(string Warningtext)
