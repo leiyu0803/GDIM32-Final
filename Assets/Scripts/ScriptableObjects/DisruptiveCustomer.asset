@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7622f66c4b2c1dc49ab4513eff0bdb1f, type: 3}
   m_Name: DisruptiveCustomer
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - NPCLine: 
+    dialogueOptions: []
+    name: startOfDialogue
+  - NPCLine: 
+    dialogueOptions: []
+    name: endOfDialogue

@@ -14,5 +14,16 @@ public class Dialogue {
 }
 [CreateAssetMenu(fileName = "DialogueSet", menuName = "ScriptableObjects/Dialogue Set", order = 1)]
 public class DialogueSet : ScriptableObject {
-    public List<Dialogue> dialogues;
-} 
+    public List<Dialogue> dialogues = new List<Dialogue>(){
+        new Dialogue(){
+            name = "startOfDialogue",
+            NPCLine = "",
+            dialogueOptions = new List<DialogueOption>()
+        },
+        new Dialogue(){
+            name = "endOfDialogue",
+            NPCLine = "",
+            dialogueOptions = new List<DialogueOption>()
+        }
+    };
+}

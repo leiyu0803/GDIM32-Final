@@ -2,7 +2,13 @@ using TMPro;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
-{
+{   
+    // Dialogue start event.
+    // 传递与之对话的NPC对象给DialogueController
+    public delegate void DialogueStartHandler(GameObject NPC);
+    public static event DialogueStartHandler onDialogueStart;
+    // (完成时删除) 对话触发逻辑尚未添加
+    
     [SerializeField] private float _MaxTime = 300f;
     [SerializeField] TMP_Text _timerText;
 
