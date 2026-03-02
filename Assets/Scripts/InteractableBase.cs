@@ -2,10 +2,10 @@ using UnityEngine;
 
 public abstract class InteractableBase : MonoBehaviour
 {
-
+    [SerializeField] bool _isActive = true;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("MainCamera"))
+        if (other.gameObject.tag.Equals("MainCamera") && _isActive)
         {
             Locator.Player._interactItems.Add(gameObject);
         }
@@ -18,7 +18,15 @@ public abstract class InteractableBase : MonoBehaviour
             Locator.Player._interactItems.Remove(gameObject);
         }
     }
+    public void Activate()
+    {
+        _isActive = true;
+    }
 
+    public void Deactivate()
+    {
+        _isActive = false;
+    }
 
     public abstract void Interact();
 

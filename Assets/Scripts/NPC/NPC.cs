@@ -10,9 +10,6 @@ public class MoveSequenceTest : MonoBehaviour
     [Header("Debug")]
     [Space]
     [SerializeField] int x_rot;
-    [Space]
-    [Header("Attributes")]
-    [SerializeField] Animator _animator;
     void Start()
     {
         transform.position = new Vector3(-6.62099981f, 0.101999998f, 1.78400004f);
@@ -76,10 +73,6 @@ public class MoveSequenceTest : MonoBehaviour
 
         bool willMove = startPos != targetPos;
 
-        // 如果真的会移动
-        if (willMove)
-            _animator.SetBool("ShouldMove", true);
-
         float time = 0;
 
         while (time < moveDuration)
@@ -96,13 +89,6 @@ public class MoveSequenceTest : MonoBehaviour
         transform.position = targetPos;
         transform.rotation = targetRot;
 
-        // 移动结束
-        if (willMove)
-            _animator.SetBool("ShouldMove", false);
-    }
-    private void Update()
-    {
-        Debug.Log(_animator.GetBool("ShouldMove"));
     }
 }
 

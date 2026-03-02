@@ -86,9 +86,13 @@ public class PlayerController : MonoBehaviour
             {
                 _pickupText.text = "Press F to throw away your ice cream";
             }
-            else if(closestItem.tag == "Submit")
+            else if(closestItem.tag == "NPC" && GameController.Instance._isNPCInteracted == true)
             {
-                _pickupText.text = "Press F to submit your order";
+                _pickupText.text = "Press F to submit order";
+            }
+            else if(closestItem.tag == "NPC" &&  GameController.Instance._isNPCInteracted == false)
+            {
+                _pickupText.text = "Press F to take order";
             }
             else
                 _pickupText.text = "Press F to pick up " + closestItem.name;

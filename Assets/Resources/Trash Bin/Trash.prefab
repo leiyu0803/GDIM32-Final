@@ -98,7 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c1c9319821540e4b91bee087e8c58d3, type: 3}
       propertyPath: m_Name
-      value: trash-bin
+      value: Trash Bin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1c1c9319821540e4b91bee087e8c58d3, type: 3}
+      propertyPath: m_TagString
+      value: TrashBin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -107,6 +111,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c1c9319821540e4b91bee087e8c58d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1935033850989440346}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c1c9319821540e4b91bee087e8c58d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5141124479898315066}
   m_SourcePrefab: {fileID: 100100000, guid: 1c1c9319821540e4b91bee087e8c58d3, type: 3}
 --- !u!1 &404715372030147613 stripped
 GameObject:
@@ -132,8 +139,21 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.02004602, y: 0.020046012, z: 1}
-  m_Center: {x: 0, y: 0, z: -0.0005123451}
+  m_Size: {x: 0.018, y: 0.018, z: 0.018}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5141124479898315066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404715372030147613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b40bb4c9f47d9348997474105c85bae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isActive: 1
 --- !u!4 &1069049452143011495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1c1c9319821540e4b91bee087e8c58d3, type: 3}

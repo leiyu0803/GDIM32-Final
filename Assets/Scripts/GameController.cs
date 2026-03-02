@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class GameController : MonoBehaviour
@@ -16,8 +17,11 @@ public class GameController : MonoBehaviour
     [SerializeField] private TMP_Text _itemText;
     [SerializeField] private TMP_Text _scoreText;
 
-    private IcecreamFlavor _orderFlavour;
-    private ContainerType _orderContainer;
+    [SerializeField] GameObject _NPCPrefab;
+    [SerializeField] Transform _NPCSpawnTransform;
+
+    private IcecreamFlavor _orderFlavour = IcecreamFlavor.None;
+    private ContainerType _orderContainer = ContainerType.None;
 
     private float _currentTime;
     public static GameController Instance { get; private set; }
@@ -29,6 +33,8 @@ public class GameController : MonoBehaviour
     public static event OrderCompleted OnOrderCompleted;
 
     private int _score;
+
+    public bool _isNPCInteracted = false;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -37,20 +43,35 @@ public class GameController : MonoBehaviour
             return;
         }
         Instance = this;
-        InteractableSubmit.OnSubmit += SubmitOrder;
+        InteractableNPC.OnNPC += NPCInteract;
+    }
+
+    public void RegisterNPC(NPCMovement npc)
+    {
+        if (npc != null)
+        {
+            npc.onArrived += OnNPCArrived;
+        }
+    }
+
+    private void OnNPCArrived()
+    {
+        Debug.Log("NPC Arrived at destination");
     }
     private void Start()
     {
         _currentTime = _MaxTime;
-        Test_NewOrder();
+        Instantiate(_NPCPrefab, _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
     }
 
     private void Update()
     {
         _currentTime -= Time.deltaTime;
-        if (_currentTime >= _MaxTime)
+        if (_currentTime<=0)
         {
-            Debug.Log("Game Over");
+            PlayerPrefs.SetInt("Score", _score);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("GameOver");
         }
         UpdateTimerUI();
         UpadteItemUI();
@@ -80,15 +101,32 @@ public class GameController : MonoBehaviour
         _itemText.text = $"Order:\n {_orderContainer} \n {_orderFlavour} \n Current: \n {Locator.Player.GetCurrentContainer()} \n {Locator.Player.GetCurrentFlavor()}";
     }
 
+    private void NPCInteract()
+    {
+        Debug.Log("NPC Interacted");
+        //onDialogueStart?.Invoke(Locator.Player.gameObject);
+        if(_isNPCInteracted == false)
+        {
+            Test_NewOrder();
+            _isNPCInteracted = true;
+        }
+        else
+        {
+            SubmitOrder();
+        }
+
+    }
     private void SubmitOrder()
     {
-        Debug.Log("Submit Order");
         if (Locator.Player.GetCurrentContainer() == _orderContainer && Locator.Player.GetCurrentFlavor() == _orderFlavour)
         {
             OnOrderCompleted?.Invoke();
             _score++;
             _scoreText.text = _score.ToString();
-            Test_NewOrder();
+            _isNPCInteracted = false;
+            _orderFlavour = IcecreamFlavor.None;
+            _orderContainer = ContainerType.None;
+            Instantiate(_NPCPrefab, _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
         }
         else
         {

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TrashBin
   - Submit
+  - NPC
   layers:
   - Default
   - TransparentFX
