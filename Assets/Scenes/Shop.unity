@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 724e8fbef63401e4986a4ecd16849130, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -460,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 303727887}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.14, y: 0.63, z: 2.029}
+  m_LocalPosition: {x: 2.52, y: 0.63, z: 2.029}
   m_LocalScale: {x: 7.275842, y: 0.65696, z: 0.55303}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1142,7 +1142,7 @@ Transform:
   m_GameObject: {fileID: 1369636640}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.72, y: 0.575, z: 2.645}
+  m_LocalPosition: {x: 0.72, y: 0.575, z: 1.88}
   m_LocalScale: {x: 8.550899, y: 2.2959077, z: 0.7179601}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1658,6 +1658,10 @@ PrefabInstance:
     - target: {fileID: 1042592479990462306, guid: 1c9f9e193be14c348901666ee0e3c205, type: 3}
       propertyPath: m_Name
       value: Ice Cream Parlour
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042592479990462306, guid: 1c9f9e193be14c348901666ee0e3c205, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2426012330295954456, guid: 1c9f9e193be14c348901666ee0e3c205, type: 3}
       propertyPath: m_LocalPosition.x

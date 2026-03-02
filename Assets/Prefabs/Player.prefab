@@ -90,7 +90,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactItems: []
-  _playerCenter: {x: 0, y: 2.3, z: 0}
+  _pickupUI: {fileID: 0}
+  _pickupText: {fileID: 0}
+  _WarningUI: {fileID: 0}
+  _warningText: {fileID: 0}
+  _currentStage: 0
+  _currentFlavor: 0
+  _currentContainer: 0
 --- !u!114 &3124538705540105113
 MonoBehaviour:
   m_ObjectHideFlags: 0
