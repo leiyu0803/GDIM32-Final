@@ -15,11 +15,29 @@ Allen Gu
 ## Check-In
 ### Group Devlog
 
-
+During development, I find a issue that after spawning the second NPC, players were unable to interact with it. I added a breakpoint at the location where NPC interaction occurs( `NPCInteract` at `GameController.cs` ). After checking the variables in my code, I found that the reference still pointed to the first NPC. So, when spawning new NPC, I adjusted the reference to point to the new NPC instead.
 
 ### Individual Devlog 1
 
+`CameraMovement.cs`
 
+`GameController.cs`
+
+`InteractableBase.cs` and all subclass
+
+`PlayerController.cs`
+
+`PlayerMovement.cs`
+
+Entire `TestScense`
+
+`Start` and `GameOver`
+
+Proposal is detailed enough.
+
+We use Trello to track our process.
+
+I will add a deadline on all feature listed on Trello.
 
 ### Individual Devlog 2
 
