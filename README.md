@@ -1,11 +1,33 @@
 # GDIM32-Final
-## Check-In
+
 ### Team Member Name 1
+
 Haoyi Zhang
+
 ### Team Member Name 2
+
 Pengcheng Qi
+
 ### Team Member Name 3
+
 Allen Gu
+
+## Check-In
+### Group Devlog
+
+
+
+### Individual Devlog 1
+
+
+
+### Individual Devlog 2
+
+
+
+### Individual Devlog 3
+
+
 
 
 ## Final Submission
