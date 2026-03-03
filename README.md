@@ -72,5 +72,11 @@ Put your individual final Devlog here.
 
 [Ice Cream Parlor - BrimanFunkman](https://sketchfab.com/3d-models/ice-cream-parlor-e508c4a4e3864aedbfe1e6a7f0f8d6ec)
 
+[NPC models and animations](https://www.mixamo.com/#/)
+
+[Simple Low Poly Nature Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/simple-low-poly-nature-pack-157552)
+
+[Low Poly Wind](https://assetstore.unity.com/packages/vfx/shaders/low-poly-wind-182586)
+
 
 
