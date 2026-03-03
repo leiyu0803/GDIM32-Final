@@ -17,7 +17,7 @@ Allen Gu
 
 During development, I find a issue that after spawning the second NPC, players were unable to interact with it. I added a breakpoint at the location where NPC interaction occurs( `NPCInteract` at `GameController.cs` ). After checking the variables in my code, I found that the reference still pointed to the first NPC. So, when spawning new NPC, I adjusted the reference to point to the new NPC instead.
 
-### Individual Devlog 1
+### Haoyi Zhang
 
 `CameraMovement.cs`
 
@@ -39,12 +39,19 @@ We use Trello to track our process.
 
 I will add a deadline on all feature listed on Trello.
 
-### Individual Devlog 2
+### Pengcheng Qi
+#### Found Art Resources and did parts of the NPC prefab.
+1. Found and adapted the ice cream parlour model into the scene
+2. Modified the window and the ice cream container models to fit the game, added custom colliders in the scene.
+3. Decorated the scene
+4. Imported and made the animations usable in the scene (and attempted to code the NPCs)
 
-
-
-### Individual Devlog 3
-
+### Allen Gu
+#### Dialogue framework built.
+1. DialogueSet scriptable object added, including DialogueOption class, Dialogue class and DialogueSet class
+2. DialogueController script added, which manages the logic of dialogues.
+3. DialogueUIController script added, which makes the dialogue interactable through UI.
+4. GameController script modified, making it able to call out dialogue function.
 
 
 
@@ -53,16 +60,12 @@ I will add a deadline on all feature listed on Trello.
 Put your group Devlog here.
 
 
-### Team Member Name 1
+### Haoyi Zhang
 Put your individual final Devlog here.
-### Team Member Name 2
+### Pengcheng Qi
 Put your individual final Devlog here.
 ### Allen Gu
-#### Dialogue framework built.
-1. DialogueSet scriptable object added, including DialogueOption class, Dialogue class and DialogueSet class
-2. DialogueController script added, which manages the logic of dialogues.
-3. DialogueUIController script added, which makes the dialogue interactable through UI.
-4. GameController script modified, making it able to call out dialogue function.
+
 
 ## Open-Source Assets
 [Skybox Series Free - Avionx](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
