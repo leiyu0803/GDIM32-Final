@@ -63,7 +63,8 @@ Put your individual final Devlog here.
 2. DialogueController script added, which manages the logic of dialogues.
 3. DialogueUIController script added, which makes the dialogue interactable through UI.
 4. GameController script modified, making it able to call out dialogue function.
-
+#### Break-down
+I ended up using most of the parts written in my break-down. The break-down helps our group to coordinate smoother and reduces the probability of cross-working. The break-down also helps me design the hierachy structure of dialogue data and can be edited and used more conveniently. There are also aspects that can improve, which is making the break-down more specific or creating sub-break-down since i still had trouble structuring the code.
 ## Open-Source Assets
 [Skybox Series Free - Avionx](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
 
