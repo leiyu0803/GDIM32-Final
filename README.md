@@ -57,8 +57,12 @@ Put your group Devlog here.
 Put your individual final Devlog here.
 ### Team Member Name 2
 Put your individual final Devlog here.
-### Team Member Name 3
-Put your individual final Devlog here.
+### Allen Gu
+#### Dialogue framework built.
+1. DialogueSet scriptable object added, including DialogueOption class, Dialogue class and DialogueSet class
+2. DialogueController script added, which manages the logic of dialogues.
+3. DialogueUIController script added, which makes the dialogue interactable through UI.
+4. GameController script modified, making it able to call out dialogue function.
 
 ## Open-Source Assets
 [Skybox Series Free - Avionx](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
