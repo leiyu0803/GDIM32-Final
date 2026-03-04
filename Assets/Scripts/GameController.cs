@@ -10,13 +10,18 @@ public class GameController : MonoBehaviour
     public delegate void DialogueStartHandler(GameObject NPC);
     public static event DialogueStartHandler onDialogueStart;
     // (完成时删除) 对话触发逻辑尚未添加
-    
+    [Header("UI & Timer Settings")]
+    [Space]
     [SerializeField] private float _MaxTime = 300f;
     [SerializeField] TMP_Text _timerText;
-
+    
     [SerializeField] private TMP_Text _itemText;
     [SerializeField] private TMP_Text _scoreText;
 
+    [Space]
+    [Header("Other Assignments")]
+    [Space]
+    [SerializeField] GameObject _NPCLookAtPoint;
     [SerializeField] GameObject _NPCPrefab;
     [SerializeField] Transform _NPCSpawnTransform;
 
@@ -54,10 +59,17 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void OnNPCArrived()
+    private void OnNPCArrived(NPCMovement npc)
     {
         Debug.Log("NPC Arrived at destination");
+        if (_NPCLookAtPoint != null)
+        {
+            npc.FaceTarget(_NPCLookAtPoint.transform);
+        }
+
+            
     }
+
     private void Start()
     {
         _currentTime = _MaxTime;

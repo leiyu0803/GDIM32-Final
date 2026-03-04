@@ -9,7 +9,7 @@ public class NPCMovement : MonoBehaviour
 	List<Transform> _moveInTargetLocations;
 	List<Transform> _moveOutTargetLocations;
 
-    public delegate void Arrived();
+    public delegate void Arrived(NPCMovement self);
     public event Arrived onArrived;
 
     NavMeshAgent NavMeshAgent;
@@ -37,9 +37,21 @@ public class NPCMovement : MonoBehaviour
             yield return new WaitUntil(() => Vector3.Distance(transform.position, targetLocation.position) < 0.5f);
         }
         NavMeshAgent.SetDestination(transform.position);
-        onArrived?.Invoke();
+        onArrived?.Invoke(this);
         this.GetComponent<InteractableNPC>().Activate();
     }
+    // Face Look At Target
+    public void FaceTarget(Transform target)
+    {
+        if (target == null) return;
+
+        Vector3 direction = target.position - transform.position;
+        direction.y = 0;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = targetRotation;
+    }
+
     private void Moveout()
     {
         StartCoroutine(SetMoveOutDestination());
