@@ -78,6 +78,7 @@ Put your individual final Devlog here.
 
 [Simple Low Poly Nature Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/simple-low-poly-nature-pack-157552)
 
+[Lights](https://free3d.com/3d-model/ceiling-light-41651.html)
 [Low Poly Wind](https://assetstore.unity.com/packages/vfx/shaders/low-poly-wind-182586)
 
 
