@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class InteractableNPC : InteractableBase
 {
-    public delegate void NPC();
+    // event now carries the GameObject of the NPC that was interacted with
+    public delegate void NPC(GameObject npc);
     public static event NPC OnNPC;
 
     private void Start()
@@ -14,7 +15,8 @@ public class InteractableNPC : InteractableBase
 
     public override void Interact()
     {
-        OnNPC?.Invoke();
+        // pass this gameObject to subscribers
+        OnNPC?.Invoke(gameObject);
     }
 
     private void OrderCompleate()

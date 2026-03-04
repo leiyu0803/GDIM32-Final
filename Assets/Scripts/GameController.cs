@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     // 传递与之对话的NPC对象给DialogueController
     public delegate void DialogueStartHandler(GameObject NPC);
     public static event DialogueStartHandler onDialogueStart;
-    // (完成时删除) 对话触发逻辑尚未添加
+    // 对话触发逻辑已添加
     [Header("UI & Timer Settings")]
     [Space]
     [SerializeField] private float _MaxTime = 300f;
@@ -40,6 +40,8 @@ public class GameController : MonoBehaviour
     private int _score;
 
     public bool _isNPCInteracted = false;
+    private GameObject _currentNPC;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -48,6 +50,7 @@ public class GameController : MonoBehaviour
             return;
         }
         Instance = this;
+        // subscribe to event with updated signature
         InteractableNPC.OnNPC += NPCInteract;
     }
 
@@ -113,20 +116,22 @@ public class GameController : MonoBehaviour
         _itemText.text = $"Order:\n {_orderContainer} \n {_orderFlavour} \n Current: \n {Locator.Player.GetCurrentContainer()} \n {Locator.Player.GetCurrentFlavor()}";
     }
 
-    private void NPCInteract()
+    private void NPCInteract(GameObject npc)
     {
-        Debug.Log("NPC Interacted");
-        //onDialogueStart?.Invoke(Locator.Player.gameObject);
-        if(_isNPCInteracted == false)
+        Debug.Log("NPC Interacted: " + npc.name);
+        _currentNPC = npc;
+
+        if (_isNPCInteracted == false)
         {
             Test_NewOrder();
             _isNPCInteracted = true;
+            // trigger dialogue event and pass the NPC that was interacted with
+            onDialogueStart?.Invoke(npc);
         }
         else
         {
             SubmitOrder();
         }
-
     }
     private void SubmitOrder()
     {
