@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6002792257043697998}
   - component: {fileID: 7606108928877666560}
   m_Layer: 0
-  m_Name: red
+  m_Name: Blood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311f04bb349cb8642a649425eda5eab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isActive: 1
 --- !u!1 &2885999263571588379
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ GameObject:
   - component: {fileID: 7961044542620015248}
   - component: {fileID: 7507375772654509981}
   m_Layer: 0
-  m_Name: purple
+  m_Name: Grape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311f04bb349cb8642a649425eda5eab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isActive: 1
 --- !u!1 &6442115611124117511
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +287,7 @@ GameObject:
   - component: {fileID: 1115593438237553896}
   - component: {fileID: 9176289108699708705}
   m_Layer: 0
-  m_Name: pink
+  m_Name: Strawberry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311f04bb349cb8642a649425eda5eab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isActive: 1
 --- !u!1001 &9053195361685660556
 PrefabInstance:
   m_ObjectHideFlags: 0
