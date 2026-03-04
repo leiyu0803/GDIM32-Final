@@ -41,10 +41,11 @@ I will add a deadline on all feature listed on Trello.
 
 ### Pengcheng Qi
 #### Found Art Resources and did parts of the NPC prefab.
-1. Found and adapted the ice cream parlour model into the scene
-2. Modified the window and the ice cream container models to fit the game, added custom colliders in the scene.
+1. Found and adapted the ice cream parlour model into the shop scene
+2. Modified the window and the ice cream container models to fit the game, added custom colliders with cubes in the scene to block the player's movement.
 3. Decorated the scene
-4. Imported and made the animations usable in the scene (and attempted to code the NPCs)
+4. Imported and made the animations usable in the scene with the prefabs NPC_Test1 and NPC_Test2, made animators for the NPCs with a ShouldMove bool variable to control the movement state of the NPC.(and attempted to code the NPCs' movements with the Move Sequence Test script and failed)
+5. Added A navmesh on the scene using geometry with physics colliders in the navmesh surface and added cubes as custom colliders in order to bake the correct navmesh.
 
 ### Allen Gu
 #### Dialogue framework built.
