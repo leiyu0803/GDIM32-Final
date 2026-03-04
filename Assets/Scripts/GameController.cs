@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,7 +23,7 @@ public class GameController : MonoBehaviour
     [Header("Other Assignments")]
     [Space]
     [SerializeField] GameObject _NPCLookAtPoint;
-    [SerializeField] GameObject _NPCPrefab;
+    [SerializeField] List<GameObject> _NPCPrefabs;
     [SerializeField] Transform _NPCSpawnTransform;
 
     private IcecreamFlavor _orderFlavour = IcecreamFlavor.None;
@@ -76,7 +77,8 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         _currentTime = _MaxTime;
-        Instantiate(_NPCPrefab, _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
+        int randomIndex = Random.Range(0, _NPCPrefabs.Count);
+        Instantiate(_NPCPrefabs[randomIndex], _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
     }
 
     private void Update()
@@ -143,7 +145,8 @@ public class GameController : MonoBehaviour
             _isNPCInteracted = false;
             _orderFlavour = IcecreamFlavor.None;
             _orderContainer = ContainerType.None;
-            Instantiate(_NPCPrefab, _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
+            int randomIndex = Random.Range(0, _NPCPrefabs.Count);
+            Instantiate(_NPCPrefabs[randomIndex], _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
         }
         else
         {
