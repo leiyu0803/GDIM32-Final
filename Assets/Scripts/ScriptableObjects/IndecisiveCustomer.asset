@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: IndecisiveCustomer
   m_EditorClassIdentifier: 
   dialogues:
-  - NPCLine: 
+  - NPCLine: []
     dialogueOptions: []
     name: startOfDialogue
-  - NPCLine: 
-    dialogueOptions: []
+  - NPCLine: []
+    dialogueOptions:
+    - optionText: []
+      nextDialogueName: []
     name: endOfDialogue
