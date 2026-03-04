@@ -24,6 +24,7 @@ public class DialogueSet : ScriptableObject {
             NPCLine = "",
             dialogueOptions = new List<DialogueOption>()
         },
+        // 结束对话，无需选项，表示对话结束
         new Dialogue(){
             name = "endOfDialogue",
             NPCLine = "",
