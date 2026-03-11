@@ -42,6 +42,15 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] GameObject _WarningUI;
     [SerializeField] TMP_Text _warningText;
+    [Header("Ice Cream Assets")]
+    [SerializeField] Material _grapeMat;
+    [SerializeField] Material _bloodMat;
+    [SerializeField] Material _strawberryMat;
+    [SerializeField] GameObject _cupIcecream;
+    [SerializeField] GameObject _coneIcecream;
+    [SerializeField] GameObject _cupIcecreamIcecream;
+    [SerializeField] GameObject _coneIcecreamIcecream;
+
 
     public IcecreamStage _currentStage = IcecreamStage.None;
     public IcecreamFlavor _currentFlavor;
@@ -121,6 +130,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Picked up cones");
             _currentContainer = ContainerType.Cone;
             _currentStage = IcecreamStage.Container;
+            _coneIcecream.SetActive(true);
         }
         else if (_currentStage == IcecreamStage.Container)
         {
@@ -138,6 +148,7 @@ public class PlayerController : MonoBehaviour
         {
             _currentContainer = ContainerType.Cup;
             _currentStage = IcecreamStage.Container;
+            _cupIcecream.SetActive(true);
         }
         else if (_currentStage == IcecreamStage.Container)
         {
@@ -155,6 +166,16 @@ public class PlayerController : MonoBehaviour
         {
             _currentFlavor = IcecreamFlavor.Grape;
             _currentStage = IcecreamStage.Finished;
+            if (_currentContainer == ContainerType.Cup)
+            {
+                _cupIcecreamIcecream.SetActive(true);
+                _cupIcecreamIcecream.GetComponent<Renderer>().material = _grapeMat;
+            }
+            else if (_currentContainer == ContainerType.Cone)
+            {
+                _coneIcecreamIcecream.SetActive(true);
+                _coneIcecreamIcecream.GetComponent<Renderer>().material = _grapeMat;
+            }
         }
         else if (_currentStage == IcecreamStage.None)
         {
@@ -171,6 +192,16 @@ public class PlayerController : MonoBehaviour
         {
             _currentFlavor = IcecreamFlavor.Strawberry;
             _currentStage = IcecreamStage.Finished;
+            if (_currentContainer == ContainerType.Cup)
+            {
+                _cupIcecreamIcecream.SetActive(true);
+                _cupIcecreamIcecream.GetComponent<Renderer>().material = _strawberryMat;
+            }
+            else if (_currentContainer == ContainerType.Cone)
+            {
+                _coneIcecreamIcecream.SetActive(true);
+                _coneIcecreamIcecream.GetComponent<Renderer>().material = _strawberryMat;
+            }
         }
         else if (_currentStage == IcecreamStage.None)
         {
@@ -187,6 +218,16 @@ public class PlayerController : MonoBehaviour
         {
             _currentFlavor = IcecreamFlavor.Blood;
             _currentStage = IcecreamStage.Finished;
+            if (_currentContainer == ContainerType.Cup)
+            {
+                _cupIcecreamIcecream.SetActive(true);
+                _cupIcecreamIcecream.GetComponent<Renderer>().material = _bloodMat;
+            }
+            else if (_currentContainer == ContainerType.Cone)
+            {
+                _coneIcecreamIcecream.SetActive(true);
+                _coneIcecreamIcecream.GetComponent<Renderer>().material = _bloodMat;
+            }
         }
         else if (_currentStage == IcecreamStage.None)
         {
@@ -196,6 +237,7 @@ public class PlayerController : MonoBehaviour
         {
             OnDisplayWarning?.Invoke("You already have an ice cream!");
         }
+
     }
 
     private void Trashcan()
@@ -206,7 +248,10 @@ public class PlayerController : MonoBehaviour
             return;
         }
         _currentStage = IcecreamStage.None;
-
+        _cupIcecream.SetActive(false);
+        _coneIcecream.SetActive(false);
+        _cupIcecreamIcecream.SetActive(false);
+        _coneIcecreamIcecream.SetActive(false);
     }
 
     public ContainerType GetCurrentContainer()
