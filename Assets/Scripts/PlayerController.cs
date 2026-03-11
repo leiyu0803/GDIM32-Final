@@ -24,6 +24,12 @@ public enum ContainerType
     None
 }
 
+public enum NPCType
+{
+    DesruptiveCostumer,
+    IndecisiveCostumer,
+    RegularCostumer,
+}
 public class PlayerController : MonoBehaviour
 {
     public delegate void DisplayWarning(string Warningtext);

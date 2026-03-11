@@ -13,6 +13,11 @@ public class DialogueUIController : MonoBehaviour
     [SerializeField] GameObject NPCLineText;
     [SerializeField] GameObject OptionsContainerPrefab;
 
+    [SerializeField] float firstOptionX = 0f; // 第一个选项的X坐标
+    [SerializeField] float firstOptionY = -5f; // 第一个选项的Y坐标
+    [SerializeField] float optionSpacingX = 0f; // 选项之间的水平间距
+    [SerializeField] float optionSpacingY = -1f; // 选项之间的垂直间距
+
     private Dialogue currentDialogue;
     private bool isInDialogue = false;
     private List<GameObject> currentOptions = new List<GameObject>();
@@ -30,12 +35,15 @@ public class DialogueUIController : MonoBehaviour
             Destroy(option);
         }
         currentOptions.Clear();
-        // 为每个选项创建一个按钮，并设置按钮文本为选项文本
+        // 为每个选项创建一个按钮，并设置按钮文本为选项文本，并且安排按钮的位置 
         foreach (DialogueOption option in dialogue.dialogueOptions)
-        {
+        {   
+            float optionX = firstOptionX + (optionSpacingX * currentOptions.Count);
+            float optionY = firstOptionY + (optionSpacingY * currentOptions.Count);
             GameObject optionButton = Instantiate(
                 OptionsContainerPrefab, 
-                OptionsContainerPrefab.transform.parent);
+                new Vector3(optionX, optionY, 0),
+                Quaternion.identity);
             string optionText = trimText(option.optionText);
             optionButton.GetComponentInChildren<TMP_Text>().text = optionText;
             currentOptions.Add(optionButton);
