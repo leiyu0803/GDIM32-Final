@@ -448,6 +448,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c1050a65bff51204db3c3edd04ef84ad, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c51a95bb16fe8d34aadc9b4a7d176230, type: 2}
     - target: {fileID: 919132149155446097, guid: c1050a65bff51204db3c3edd04ef84ad, type: 3}
       propertyPath: m_Name
       value: Ice Cream Counter

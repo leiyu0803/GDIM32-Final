@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject _NPCLookAtPoint;
     [SerializeField] List<GameObject> _NPCPrefabs;
     [SerializeField] Transform _NPCSpawnTransform;
+    public List<DialogueSet> _dialogueSets;
 
     private IcecreamFlavor _orderFlavour = IcecreamFlavor.None;
     private ContainerType _orderContainer = ContainerType.None;

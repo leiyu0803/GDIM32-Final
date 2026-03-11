@@ -26,7 +26,7 @@ public class DialogueController : MonoBehaviour
 
     private void handleDialogueStart(GameObject NPC)
     {   
-        currentDialogueSet = NPC.GetComponent<DialogueSet>();
+        currentDialogueSet = NPC.GetComponent<NPCDialogue>()._dialogueSet;
         isInDialogue = false;
         bool found = false;
 
