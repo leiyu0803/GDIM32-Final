@@ -13,11 +13,34 @@ MonoBehaviour:
   m_Name: IndecisiveCustomer
   m_EditorClassIdentifier: 
   dialogues:
-  - NPCLine: []
-    dialogueOptions: []
+  - NPCLine:
+    - Hi. Emmm........
+    - Emmm........
+    dialogueOptions:
+    - optionText:
+      - How could I help you?
+      nextDialogueName: AnyRecommendations
+    - optionText:
+      - Need reccomendations?
+      nextDialogueName: Sure
     name: startOfDialogue
   - NPCLine: []
     dialogueOptions:
     - optionText: []
-      nextDialogueName: []
+      nextDialogueName: 
     name: endOfDialogue
+  - NPCLine:
+    - Any recommendations?
+    dialogueOptions:
+    - optionText:
+      - Sure. Llet me make you one.
+      nextDialogueName: AnyRecommendations
+    name: Indecisive
+  - NPCLine:
+    - Yeah...
+    - Sure...
+    dialogueOptions:
+    - optionText:
+      - Sure. Llet me make you one.
+      nextDialogueName: endOfDialogue
+    name: Sure

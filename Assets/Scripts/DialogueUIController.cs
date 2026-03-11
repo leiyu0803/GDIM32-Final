@@ -85,7 +85,7 @@ public class DialogueUIController : MonoBehaviour
             {   
                 // 获取被点击的选项在当前选项列表中的索引
                 int optionIndex = currentOptions.IndexOf(clickedOption);
-                string nextDialogueName = currentDialogue.dialogueOptions[optionIndex].nextDialogueName[0];
+                string nextDialogueName = currentDialogue.dialogueOptions[optionIndex].nextDialogueName;
                 onDialogueOptionSelected?.Invoke(nextDialogueName);
             }
         }

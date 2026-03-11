@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DialogueController : MonoBehaviour
 {   
+    public delegate void DialogueEndHandler();
+    public static event DialogueEndHandler onDialogueEnd;
+
     [SerializeField] DialogueUIController dialogueUIController;
 
     public bool isInDialogue = false;
@@ -56,6 +59,7 @@ public class DialogueController : MonoBehaviour
                 {
                     // reached the designated end dialogue
                     dialogueUIController.destroyDialogueUI();
+                    onDialogueEnd?.Invoke();
                     isInDialogue = false;
                 }
                 else

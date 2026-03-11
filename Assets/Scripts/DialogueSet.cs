@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class DialogueOption {
     public string[] optionText;
-    public string[] nextDialogueName;
+    public string nextDialogueName;
 }
 // 对话类，包含NPC的台词、选项列表和对话名称
 [System.Serializable]

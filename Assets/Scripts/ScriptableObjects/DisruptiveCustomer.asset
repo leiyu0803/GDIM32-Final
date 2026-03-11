@@ -13,9 +13,47 @@ MonoBehaviour:
   m_Name: DisruptiveCustomer
   m_EditorClassIdentifier: 
   dialogues:
-  - NPCLine: 
-    dialogueOptions: []
+  - NPCLine:
+    - Hello
+    - A McFlurry ice cream :)
+    dialogueOptions:
+    - optionText:
+      - This is not McDonald.
+      nextDialogueName: SoWhat
+    - optionText:
+      - What is your promblem
+      nextDialogueName: SoWhat
+    - optionText:
+      - '*Keep silent*'
+      nextDialogueName: Hey
+    - optionText:
+      - Get out!
+      nextDialogueName: endOfDialogue
     name: startOfDialogue
-  - NPCLine: 
+  - NPCLine: []
     dialogueOptions: []
     name: endOfDialogue
+  - NPCLine:
+    - Yeah... So what?
+    dialogueOptions:
+    - optionText:
+      - So I can't help you.
+      nextDialogueName: Complain
+    - optionText:
+      - Get out!
+      nextDialogueName: endOfDialogue
+    name: SoWhat
+  - NPCLine:
+    - How is an ice cream shop not selling ice cream?
+    dialogueOptions:
+    - optionText:
+      - Get out!
+      nextDialogueName: endOfDialogue
+    name: Complain
+  - NPCLine:
+    - Are you deaf?
+    dialogueOptions:
+    - optionText:
+      - Get out!
+      nextDialogueName: endOfDialogue
+    name: Hey

@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: RegularCustomer
   m_EditorClassIdentifier: 
   dialogues:
-  - NPCLine: 
-    dialogueOptions: []
+  - NPCLine:
+    - Hi. {{GameController._orderFlavour}} in {{GameController._orderContainer}}.
+    dialogueOptions:
+    - optionText:
+      - Sure.
+      nextDialogueName: endOfDialogue
     name: startOfDialogue
-  - NPCLine: 
+  - NPCLine: []
     dialogueOptions: []
     name: endOfDialogue
