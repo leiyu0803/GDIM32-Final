@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 165f2a2caddf5ca4e8ed1beab5f9007d, type: 3}
   m_Name: Check In
   m_EditorClassIdentifier: 
-  versionPurpose: Check-In
-  buildID: 20260302.07
+  versionPurpose: Playtest 2
+  buildID: 20260310.02
