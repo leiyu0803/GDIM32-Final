@@ -6,6 +6,8 @@ public class DialogueController : MonoBehaviour
 {   
     public delegate void DialogueEndHandler();
     public static event DialogueEndHandler onDialogueEnd;
+    public delegate void OrderPlacedHandler(IcecreamFlavor flavor, ContainerType container);
+    public static event OrderPlacedHandler onOrderPlaced;
 
     [SerializeField] DialogueUIController dialogueUIController;
 
@@ -13,6 +15,8 @@ public class DialogueController : MonoBehaviour
 
     private Dialogue currentDialogue;
     private DialogueSet currentDialogueSet;
+    private IcecreamFlavor flavorToAdd = 0;
+    private ContainerType containerToAdd = 0;
 
     // magic-string constants make refactoring easier and avoid typos
     private const string StartKey = "startOfDialogue";
@@ -27,6 +31,8 @@ public class DialogueController : MonoBehaviour
     private void handleDialogueStart(GameObject NPC)
     {   
         currentDialogueSet = NPC.GetComponent<NPCDialogue>()._dialogueSet;
+        flavorToAdd = 0;
+        containerToAdd = 0;
         isInDialogue = false;
         bool found = false;
 
@@ -47,14 +53,28 @@ public class DialogueController : MonoBehaviour
         }
     }
 
-    public void handleDialogueOptionSelected(string nextDialogueName)
+    public void handleDialogueOptionSelected(GameObject selectedOption)
     {
         bool found = false;
         foreach (Dialogue dialogue in currentDialogueSet.dialogues)
         {
-            if (dialogue.name == nextDialogueName)
+            if (selectedOption.GetComponent<DialogueOption>().nextDialogueName == dialogue.name)
             {
                 found = true;
+                if (selectedOption.GetComponent<DialogueOption>().changeFlavor)
+                {
+                    flavorToAdd = selectedOption.GetComponent<DialogueOption>().flavorToAdd;
+                }
+                if (selectedOption.GetComponent<DialogueOption>().changeContainer)
+                {
+                    containerToAdd = selectedOption.GetComponent<DialogueOption>().containerToAdd;
+                }
+                if (selectedOption.GetComponent<DialogueOption>().createEvent && flavorToAdd != 0 && containerToAdd != 0)
+                {
+                    onOrderPlaced?.Invoke(flavorToAdd, containerToAdd);
+                }else{
+                    Debug.LogError("DialogueOption is set to create an event but flavorToAdd or containerToAdd is not set properly.");
+                }
                 if (dialogue.name == EndKey)
                 {
                     // reached the designated end dialogue
@@ -73,7 +93,7 @@ public class DialogueController : MonoBehaviour
         if (!found)
         {
             isInDialogue = false;
-            Debug.LogError("DialogueSet does not contain a dialogue with the name '" + nextDialogueName + "'");
+            Debug.LogError("DialogueSet does not contain a dialogue with the name '" + selectedOption.GetComponent<DialogueOption>().nextDialogueName + "'");
         }
     }
 

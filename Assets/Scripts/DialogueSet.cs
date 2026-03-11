@@ -7,7 +7,8 @@ public class DialogueOption {
     public string[] optionText;
     public string nextDialogueName;
     public bool createEvent; // 是否创建事件
-    public string eventName; // 事件名称
+    public bool changeFlavor; // 是否改变订单
+    public bool changeContainer; // 是否改变订单
     public IcecreamFlavor flavorToAdd; // 选择该选项后添加的冰淇淋口味
     public ContainerType containerToAdd; // 选择该选项后添加的容器类型
 }

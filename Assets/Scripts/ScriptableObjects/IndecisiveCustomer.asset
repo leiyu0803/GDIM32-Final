@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7622f66c4b2c1dc49ab4513eff0bdb1f, type: 3}
   m_Name: IndecisiveCustomer
   m_EditorClassIdentifier: 
+  customerType: 0
   dialogues:
   - NPCLine:
     - Hi. Emmm........
@@ -19,28 +20,78 @@ MonoBehaviour:
     dialogueOptions:
     - optionText:
       - How could I help you?
-      nextDialogueName: AnyRecommendations
+      nextDialogueName: FlavorSelection
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     - optionText:
       - Need reccomendations?
-      nextDialogueName: Sure
+      nextDialogueName: FlavorSelection
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     name: startOfDialogue
   - NPCLine: []
     dialogueOptions:
     - optionText: []
       nextDialogueName: 
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     name: endOfDialogue
   - NPCLine:
-    - Any recommendations?
+    - Yeah...
+    - Sure... Any Recommendations?
     dialogueOptions:
     - optionText:
-      - Sure. Llet me make you one.
-      nextDialogueName: AnyRecommendations
-    name: Indecisive
+      - Grape flavor...
+      nextDialogueName: ContainerSelection
+      createEvent: 0
+      changeFlavor: 1
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
+    - optionText:
+      - Strawberry flavor...
+      nextDialogueName: ContainerSelection
+      createEvent: 0
+      changeFlavor: 1
+      changeContainer: 0
+      flavorToAdd: 1
+      containerToAdd: 0
+    - optionText:
+      - Blood flavor...
+      nextDialogueName: ContainerSelection
+      createEvent: 0
+      changeFlavor: 1
+      changeContainer: 0
+      flavorToAdd: 2
+      containerToAdd: 0
+    name: FlavorSelection
   - NPCLine:
     - Yeah...
-    - Sure...
+    - Sure... Any Recommendations?
     dialogueOptions:
     - optionText:
-      - Sure. Llet me make you one.
+      - In cone.
       nextDialogueName: endOfDialogue
-    name: Sure
+      createEvent: 1
+      changeFlavor: 0
+      changeContainer: 1
+      flavorToAdd: 0
+      containerToAdd: 0
+    - optionText:
+      - In cup
+      nextDialogueName: endOfDialogue
+      createEvent: 1
+      changeFlavor: 0
+      changeContainer: 1
+      flavorToAdd: 0
+      containerToAdd: 1
+    name: ContainerSelection
