@@ -13,9 +13,9 @@ public class NPCAnimation : MonoBehaviour
         float _speed = (Vector3.Magnitude(curpos - lastpos) / Time.deltaTime);
         lastpos = curpos;
 
-        if (_speed >= 0.1)
+        if (_speed >= 1)
         {
-            animator.SetBool("ShouldMove", true);
+           animator.SetBool("ShouldMove", true);
 
         }
         else {

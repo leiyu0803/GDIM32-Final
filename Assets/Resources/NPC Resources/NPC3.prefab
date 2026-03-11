@@ -40,85 +40,103 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3087930540356444642}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-      propertyPath: m_Name
-      value: Zombiegirl W Kurniawan
-      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 1ab0e30301b171840baa197776093388, type: 2}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_Name
+      value: Zombiegirl W Kurniawan@Zombie Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      propertyPath: m_TagString
+      value: NPC
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 673413863709309078}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6119652567497873440}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8071752275063319219}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2321120765131198135}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7692875356169959097}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3153048073707182973}
-  m_SourcePrefab: {fileID: 100100000, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
---- !u!95 &1890236501613228964 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
-  m_PrefabInstance: {fileID: 5427380420618653237}
-  m_PrefabAsset: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1449157333112018277}
+  m_SourcePrefab: {fileID: 100100000, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
 --- !u!1 &5156767178299519844 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
   m_PrefabInstance: {fileID: 5427380420618653237}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &673413863709309078
@@ -133,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1edbdef66bd3545b2e7a04304d531a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1890236501613228964}
+  animator: {fileID: 1449157333112018277}
 --- !u!114 &6119652567497873440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,8 +249,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &1449157333112018277
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5156767178299519844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1ab0e30301b171840baa197776093388, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &5538113358200302046 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce19d88fe4a4edc49b55d3bd96b14192, type: 3}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5240895b873071c49a51d4f1bcdebe2b, type: 3}
   m_PrefabInstance: {fileID: 5427380420618653237}
   m_PrefabAsset: {fileID: 0}

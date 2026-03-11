@@ -11,9 +11,9 @@ public enum IcecreamStage
 
 public enum IcecreamFlavor
 {
-    Chocolate,
+    Grape,
     Strawberry,
-    Vanilla,
+    Blood,
     None
 }
 
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_currentStage == IcecreamStage.Container)
         {
-            _currentFlavor = IcecreamFlavor.Chocolate;
+            _currentFlavor = IcecreamFlavor.Grape;
             _currentStage = IcecreamStage.Finished;
         }
         else if (_currentStage == IcecreamStage.None)
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_currentStage == IcecreamStage.Container)
         {
-            _currentFlavor = IcecreamFlavor.Vanilla;
+            _currentFlavor = IcecreamFlavor.Blood;
             _currentStage = IcecreamStage.Finished;
         }
         else if (_currentStage == IcecreamStage.None)

@@ -37,6 +37,7 @@ public class NPCMovement : MonoBehaviour
             yield return new WaitUntil(() => Vector3.Distance(transform.position, targetLocation.position) < 0.5f);
         }
         NavMeshAgent.SetDestination(transform.position);
+        NavMeshAgent.isStopped = true;
         onArrived?.Invoke(this);
         this.GetComponent<InteractableNPC>().Activate();
     }
@@ -54,6 +55,7 @@ public class NPCMovement : MonoBehaviour
 
     private void Moveout()
     {
+        NavMeshAgent.isStopped = false;
         StartCoroutine(SetMoveOutDestination());
 
     }
