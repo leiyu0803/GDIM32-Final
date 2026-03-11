@@ -15,7 +15,6 @@ public class InteractableNPC : InteractableBase
 
     public override void Interact()
     {
-        // pass this gameObject to subscribers
         OnNPC?.Invoke(gameObject);
     }
 

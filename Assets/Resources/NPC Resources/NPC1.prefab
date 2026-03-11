@@ -124,6 +124,9 @@ PrefabInstance:
       addedObject: {fileID: 4514767970290820039}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0d7497c6c5c35947bd3c78b651efab2, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 9102671588090196792}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0d7497c6c5c35947bd3c78b651efab2, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5521407825031628091}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d0d7497c6c5c35947bd3c78b651efab2, type: 3}
       insertIndex: -1
@@ -165,6 +168,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67efac7d10d220641a74982ee788ebfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9102671588090196792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3656080157488886779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36058e8da3fe83940bf564826996eb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueSet: {fileID: 0}
 --- !u!195 &5521407825031628091
 NavMeshAgent:
   m_ObjectHideFlags: 0

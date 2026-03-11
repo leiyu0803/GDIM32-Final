@@ -3624,6 +3624,10 @@ MonoBehaviour:
   - {fileID: 27561037335594345, guid: cd44bc87106799d40b2ebe6b3d5da19d, type: 3}
   - {fileID: 5871973800543689165, guid: 5b5efe24d016b3a459280d83b77c3a61, type: 3}
   _NPCSpawnTransform: {fileID: 1032696055}
+  _dialogueSets:
+  - {fileID: 11400000, guid: 95de6a97c485213468fa436687ffa2dd, type: 2}
+  - {fileID: 11400000, guid: 7a423e034466a214a9e56570587f9a45, type: 2}
+  - {fileID: 11400000, guid: f5f3634c6760a2946bbaf6dcafe24954, type: 2}
   _isNPCInteracted: 0
 --- !u!1001 &1576123021
 PrefabInstance:
