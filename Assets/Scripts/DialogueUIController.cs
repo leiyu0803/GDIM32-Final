@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DialogueUIController : MonoBehaviour
 {   
-    public delegate void DialogueOptionSelectedHandler(string nextDialogueName);
+    public delegate void DialogueOptionSelectedHandler(GameObject selectedOption);
     public static event DialogueOptionSelectedHandler onDialogueOptionSelected;
 
     [SerializeField] DialogueController dialogueController;
@@ -92,9 +92,7 @@ public class DialogueUIController : MonoBehaviour
             if (clickedOption != null)
             {   
                 // 获取被点击的选项在当前选项列表中的索引
-                int optionIndex = currentOptions.IndexOf(clickedOption);
-                string nextDialogueName = currentDialogue.dialogueOptions[optionIndex].nextDialogueName;
-                onDialogueOptionSelected?.Invoke(nextDialogueName);
+                onDialogueOptionSelected?.Invoke(clickedOption);
             }
         }
     }
