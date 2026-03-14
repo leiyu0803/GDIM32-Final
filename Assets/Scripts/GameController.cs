@@ -80,6 +80,7 @@ public class GameController : MonoBehaviour
         _currentTime = _MaxTime;
         int randomIndex = Random.Range(0, _NPCPrefabs.Count);
         Instantiate(_NPCPrefabs[randomIndex], _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
+        DialogueController.onDialogueEnd += DialogueEnd;
     }
 
     private void Update()
@@ -126,8 +127,6 @@ public class GameController : MonoBehaviour
 
         if (_isNPCInteracted == false)
         {
-            Test_NewOrder();
-            _isNPCInteracted = true;
             // trigger dialogue event and pass the NPC that was interacted with
             onDialogueStart?.Invoke(npc);
         }
@@ -141,6 +140,7 @@ public class GameController : MonoBehaviour
         if (Locator.Player.GetCurrentContainer() == _orderContainer && Locator.Player.GetCurrentFlavor() == _orderFlavour)
         {
             OnOrderCompleted?.Invoke();
+            PlayerController.Instance.Clear();
             _score++;
             _scoreText.text = _score.ToString();
             _isNPCInteracted = false;
@@ -153,5 +153,21 @@ public class GameController : MonoBehaviour
         {
             OnDisplayWarning?.Invoke("Wrong Order! Try Again!");
         }
+    }
+    private void DialogueEnd(bool a, IcecreamFlavor flavor, ContainerType container)
+    {
+        _isNPCInteracted = true;
+        if (!a)
+        {
+            _score++;
+            _scoreText.text = _score.ToString();
+            _isNPCInteracted = false;
+            OnOrderCompleted?.Invoke();
+            int randomIndex = Random.Range(0, _NPCPrefabs.Count);
+            Instantiate(_NPCPrefabs[randomIndex], _NPCSpawnTransform.position, _NPCSpawnTransform.rotation);
+            return;
+        }
+        _orderContainer = container;
+        _orderFlavour = flavor;
     }
 }

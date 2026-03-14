@@ -3,159 +3,259 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class DialogueUIController : MonoBehaviour
-{   
-    public delegate void DialogueOptionSelectedHandler(GameObject selectedOption);
+{
+    public delegate void DialogueOptionSelectedHandler(DialogueOption selectedOption);
     public static event DialogueOptionSelectedHandler onDialogueOptionSelected;
 
-    [SerializeField] DialogueController dialogueController;
-    [SerializeField] GameObject NPCLineText;
-    [SerializeField] GameObject OptionsContainerPrefab;
+    [Header("UI References")]
+    [SerializeField] private TMP_Text npcDialogueText;
+    [SerializeField] private Transform optionsContainer;
+    [SerializeField] private GameObject optionButtonPrefab;
 
-    [SerializeField] float firstOptionX = 0f; // 第一个选项的X坐标
-    [SerializeField] float firstOptionY = -5f; // 第一个选项的Y坐标
-    [SerializeField] float optionSpacingX = 0f; // 选项之间的水平间距
-    [SerializeField] float optionSpacingY = -1f; // 选项之间的垂直间距
+    [Header("Layout Settings")]
+    [SerializeField] private float optionSpacing = 10f;
 
-    private Dialogue currentDialogue;
-    private bool isInDialogue = false;
-    private List<GameObject> currentOptions = new List<GameObject>();
+    private List<GameObject> currentOptionButtons = new List<GameObject>();
 
     public void updateDialogueUI(Dialogue dialogue)
     {
-        currentDialogue = dialogue;
-        // 将NPC的台词数组转换为字符串，并显示在UI上
-        string npcLine = trimText(dialogue.NPCLine);
-        NPCLineText.GetComponent<TMP_Text>().text = npcLine;
-
-        // 销毁之前的选项按钮
-        foreach (GameObject option in currentOptions)
+        if (dialogue == null)
         {
-            Destroy(option);
+            Debug.LogError("DialogueUIController: Dialogue is null");
+            return;
         }
-        currentOptions.Clear();
-        // 为每个选项创建一个按钮，并设置按钮文本为选项文本，并且安排按钮的位置 
-        foreach (DialogueOption option in dialogue.dialogueOptions)
-        {   
-            float optionX = firstOptionX + (optionSpacingX * currentOptions.Count);
-            float optionY = firstOptionY + (optionSpacingY * currentOptions.Count);
-            GameObject optionButton = Instantiate(
-                OptionsContainerPrefab, 
-                new Vector3(optionX, optionY, 0),
-                Quaternion.identity);
-            string optionText = trimText(option.optionText);
-            optionButton.GetComponentInChildren<TMP_Text>().text = optionText;
-            currentOptions.Add(optionButton);
+
+        ShowCursor();
+        DisplayNPCDialogue(dialogue.NPCLine);
+        CreateOptionButtons(dialogue.dialogueOptions);
+    }
+
+    private void DisplayNPCDialogue(string[] dialogueLines)
+    {
+        if (npcDialogueText == null)
+        {
+            Debug.LogError("DialogueUIController: NPC Dialogue Text is not assigned");
+            return;
+        }
+
+        string formattedText = ProcessDialogueText(dialogueLines);
+        npcDialogueText.text = formattedText;
+        npcDialogueText.gameObject.SetActive(true);
+    }
+
+    private void CreateOptionButtons(List<DialogueOption> options)
+    {
+        ClearCurrentOptions();
+
+        if (optionsContainer == null || optionButtonPrefab == null)
+        {
+            Debug.LogError("DialogueUIController: OptionsContainer or OptionButtonPrefab is not assigned");
+            return;
+        }
+
+        Debug.Log("DialogueUIController: Creating " + options.Count + " option buttons");
+
+        foreach (DialogueOption option in options)
+        {
+            GameObject buttonObj = Instantiate(optionButtonPrefab, optionsContainer);
+            buttonObj.name = "DialogueOption_" + option.nextDialogueName;
+
+            TMP_Text buttonText = buttonObj.GetComponentInChildren<TMP_Text>();
+            if (buttonText != null)
+            {
+                string formattedOptionText = ProcessDialogueText(option.optionText);
+                buttonText.text = formattedOptionText;
+                Debug.Log("DialogueUIController: Button text set to: " + formattedOptionText);
+            }
+
+            Button button = buttonObj.GetComponent<Button>();
+            button.onClick.AddListener(delegate { OnOptionButtonClicked(option);});
+            Debug.Log("DialogueUIController: OnClick listener added to button for option: " + option.nextDialogueName);
+            currentOptionButtons.Add(buttonObj);
+        }
+    }
+    public void OnOptionButtonClicked(DialogueOption option)
+    {
+        Debug.Log("DialogueUIController: OnOptionButtonClicked method called for: " + option.nextDialogueName);
+
+        if (onDialogueOptionSelected != null)
+        {
+            Debug.Log("DialogueUIController: Invoking event with " + onDialogueOptionSelected.GetInvocationList().Length + " listeners");
+            onDialogueOptionSelected.Invoke(option);
+        }
+        else
+        {
+            Debug.LogWarning("DialogueUIController: No listeners subscribed to onDialogueOptionSelected event!");
         }
     }
 
-    // 临时隐藏/显示对话UI
-    // 你可能不会用这个功能，但是我写了，所以就放在这里了
-    // !! 不会释放资源
+    private void ClearCurrentOptions()
+    {
+        foreach (GameObject buttonObj in currentOptionButtons)
+        {
+            if (buttonObj != null)
+            {
+                Destroy(buttonObj);
+            }
+        }
+        currentOptionButtons.Clear();
+    }
+
     public void hideDialogueUI()
     {
-        NPCLineText.SetActive(false);
-        foreach (GameObject option in currentOptions)
+        if (npcDialogueText != null)
         {
-            option.SetActive(false);
+            npcDialogueText.gameObject.SetActive(false);
         }
 
+        foreach (GameObject buttonObj in currentOptionButtons)
+        {
+            if (buttonObj != null)
+            {
+                buttonObj.SetActive(false);
+            }
+        }
     }
+
     public void showDialogueUI()
     {
-        NPCLineText.SetActive(true);
-        foreach (GameObject option in currentOptions)
+        if (npcDialogueText != null)
         {
-            option.SetActive(true);
+            npcDialogueText.gameObject.SetActive(true);
         }
-    }
 
-    // 销毁对话UI
-    public void destroyDialogueUI()
-    {   
-        NPCLineText.GetComponent<TMP_Text>().text = "";
-        NPCLineText.SetActive(false);
-        foreach (GameObject option in currentOptions)
+        foreach (GameObject buttonObj in currentOptionButtons)
         {
-            Destroy(option);
-        }
-        currentOptions.Clear();
-    }
-
-    void Update()
-    {   
-        isInDialogue = dialogueController.isInDialogue;
-        if (isInDialogue)
-        {
-            GameObject clickedOption = iconClickDetection();
-            if (clickedOption != null)
-            {   
-                // 获取被点击的选项在当前选项列表中的索引
-                onDialogueOptionSelected?.Invoke(clickedOption);
-            }
-        }
-    }
-
-    private GameObject iconClickDetection(){
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 mousePos = Input.mousePosition;
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(mousePos), Vector2.zero);
-            if (hit.collider != null && hit.collider.gameObject.tag == "DialogueOption")
+            if (buttonObj != null)
             {
-                return hit.collider.gameObject;
+                buttonObj.SetActive(true);
             }
         }
-        return null;
     }
 
-    private string trimText (string[] texts){
-        string text = "";
-        for (int i = 0; i < texts.Length; i++)
+    public void destroyDialogueUI()
+    {
+        if (npcDialogueText != null)
         {
-            string textPart = texts[i];
-            // 寻找文本中的"{{}}"标识，并替换为对应的变量值
-            int startIndex = textPart.IndexOf("{{");
-            while (startIndex != -1){
-                int endIndex = textPart.IndexOf("}}", startIndex);
-                if (endIndex != -1)
-                {
-                    // 访问任意类的变量（比如{{Locator.data}}），获取变量值并替换文本中的"{{}}"标识
-                    string variablePath = textPart.Substring(startIndex + 2, endIndex - startIndex - 2);
-                    string variableValue = "";
-                    string[] pathParts = variablePath.Split('.');
-                    if (pathParts.Length == 2){
-                        string className = pathParts[0];
-                        string variableName = pathParts[1];
-                        System.Type type = System.Type.GetType(className);
-                        if (type != null){
-                            var field = type.GetField(variableName);
-                            if (field != null){
-                                variableValue = field.GetValue(null).ToString();
-                            }
-                            else{
-                                Debug.LogError("Variable '" + variableName + "' not found in class '" + className + "'");
-                            }
-                        }
-                        else{
-                            Debug.LogError("Class '" + className + "' not found");
-                        }
-                    }
-                    else{
-                        Debug.LogError("Invalid variable path: " + variablePath);
-                    }   
-                    text += textPart.Substring(0, startIndex) + variableValue;
-                    textPart = textPart.Substring(endIndex + 2);
-                }
-                else{
-                    break;
-                }
-            }
-            text += textPart;
-            text += "\n";
+            npcDialogueText.text = "";
+            npcDialogueText.gameObject.SetActive(false);
         }
-        text = text.TrimEnd('\n');
-        return text;
+
+        ClearCurrentOptions();
+        HideCursor();
+    }
+
+    private string ProcessDialogueText(string[] textLines)
+    {
+        if (textLines == null || textLines.Length == 0)
+        {
+            return "";
+        }
+
+        string result = "";
+
+        for (int i = 0; i < textLines.Length; i++)
+        {
+            string line = textLines[i];
+            string processedLine = ReplaceVariablePlaceholders(line);
+            result += processedLine;
+
+            if (i < textLines.Length - 1)
+            {
+                result += "\n";
+            }
+        }
+
+        return result;
+    }
+
+    private string ReplaceVariablePlaceholders(string text)
+    {
+        if (string.IsNullOrEmpty(text))
+        {
+            return text;
+        }
+
+        string result = text;
+        int startIndex = result.IndexOf("{{");
+
+        while (startIndex != -1)
+        {
+            int endIndex = result.IndexOf("}}", startIndex);
+
+            if (endIndex == -1)
+            {
+                Debug.LogWarning("DialogueUIController: Unclosed variable placeholder in text: " + text);
+                break;
+            }
+
+            string variablePath = result.Substring(startIndex + 2, endIndex - startIndex - 2);
+            string variableValue = GetVariableValue(variablePath);
+
+            result = result.Substring(0, startIndex) + variableValue + result.Substring(endIndex + 2);
+            startIndex = result.IndexOf("{{", startIndex + variableValue.Length);
+        }
+
+        return result;
+    }
+
+    private string GetVariableValue(string variablePath)
+    {
+        string[] pathParts = variablePath.Split('.');
+
+        if (pathParts.Length != 2)
+        {
+            Debug.LogError("DialogueUIController: Invalid variable path format: " + variablePath + " (expected ClassName.FieldName)");
+            return "{{" + variablePath + "}}";
+        }
+
+        string className = pathParts[0];
+        string fieldName = pathParts[1];
+
+        System.Type type = System.Type.GetType(className);
+        if (type == null)
+        {
+            Debug.LogError("DialogueUIController: Class '" + className + "' not found");
+            return "{{" + variablePath + "}}";
+        }
+
+        var field = type.GetField(fieldName);
+        if (field == null)
+        {
+            Debug.LogError("DialogueUIController: Field '" + fieldName + "' not found in class '" + className + "'");
+            return "{{" + variablePath + "}}";
+        }
+
+        if (!field.IsStatic)
+        {
+            Debug.LogError("DialogueUIController: Field '" + fieldName + "' in class '" + className + "' must be static");
+            return "{{" + variablePath + "}}";
+        }
+
+        try
+        {
+            object value = field.GetValue(null);
+            return value != null ? value.ToString() : "";
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("DialogueUIController: Error getting value of '" + variablePath + "': " + ex.Message);
+            return "{{" + variablePath + "}}";
+        }
+    }
+
+    private void ShowCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    private void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

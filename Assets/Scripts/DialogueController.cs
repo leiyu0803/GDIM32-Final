@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueController : MonoBehaviour
-{   
-    public delegate void DialogueEndHandler();
+{
+    public delegate void DialogueEndHandler(bool IsOrder, IcecreamFlavor flavor, ContainerType container); 
     public static event DialogueEndHandler onDialogueEnd;
-    public delegate void OrderPlacedHandler(IcecreamFlavor flavor, ContainerType container);
-    public static event OrderPlacedHandler onOrderPlaced;
 
     [SerializeField] DialogueUIController dialogueUIController;
 
@@ -15,8 +13,8 @@ public class DialogueController : MonoBehaviour
 
     private Dialogue currentDialogue;
     private DialogueSet currentDialogueSet;
-    private IcecreamFlavor flavorToAdd = 0;
-    private ContainerType containerToAdd = 0;
+    public static IcecreamFlavor flavorToAdd = 0;
+    public static ContainerType containerToAdd = 0;
 
     // magic-string constants make refactoring easier and avoid typos
     private const string StartKey = "startOfDialogue";
@@ -34,56 +32,56 @@ public class DialogueController : MonoBehaviour
         flavorToAdd = 0;
         containerToAdd = 0;
         isInDialogue = false;
-        bool found = false;
+
+        if (currentDialogueSet.customerType == NPCType.RegularCostumer)
+        {
+            int randomContainer = Random.Range(0, 2);
+            int randomFlavor = Random.Range(0, 3);
+            containerToAdd = (ContainerType)randomContainer;
+            flavorToAdd = (IcecreamFlavor)randomFlavor;
+        }
 
         foreach (Dialogue dialogue in currentDialogueSet.dialogues)
         {
             if (dialogue.name == StartKey)
             {
-                found = true;
                 isInDialogue = true;
                 currentDialogue = dialogue;
                 dialogueUIController.updateDialogueUI(currentDialogue);
                 break;
             }
         }
-        if (!found)
-        {
-            Debug.LogError("DialogueSet does not contain a dialogue with the name '" + StartKey + "'");
-        }
     }
 
-    public void handleDialogueOptionSelected(GameObject selectedOption)
+    public void handleDialogueOptionSelected(DialogueOption selectedOption)
     {
         bool found = false;
         foreach (Dialogue dialogue in currentDialogueSet.dialogues)
         {
-            if (selectedOption.GetComponent<DialogueOption>().nextDialogueName == dialogue.name)
+            if (selectedOption.nextDialogueName == dialogue.name)
             {
                 found = true;
-                if (selectedOption.GetComponent<DialogueOption>().changeFlavor)
+
+                if (selectedOption.changeFlavor)
                 {
-                    flavorToAdd = selectedOption.GetComponent<DialogueOption>().flavorToAdd;
+                    flavorToAdd = selectedOption.flavorToAdd;
                 }
-                if (selectedOption.GetComponent<DialogueOption>().changeContainer)
+                if (selectedOption.changeContainer)
                 {
-                    containerToAdd = selectedOption.GetComponent<DialogueOption>().containerToAdd;
-                }
-                if (selectedOption.GetComponent<DialogueOption>().createEvent && flavorToAdd != 0 && containerToAdd != 0)
-                {
-                    onOrderPlaced?.Invoke(flavorToAdd, containerToAdd);
-                }else{
-                    Debug.LogError("DialogueOption is set to create an event but flavorToAdd or containerToAdd is not set properly.");
+                    containerToAdd = selectedOption.containerToAdd;
                 }
                 if (dialogue.name == EndKey)
                 {
                     // reached the designated end dialogue
+                    Debug.Log("DialogueController: End of dialogue reached");
                     dialogueUIController.destroyDialogueUI();
-                    onDialogueEnd?.Invoke();
+                    bool isorder = currentDialogueSet.customerType != NPCType.DesruptiveCostumer;
+                    onDialogueEnd?.Invoke(isorder, flavorToAdd, containerToAdd);
                     isInDialogue = false;
                 }
                 else
                 {
+                    Debug.Log("DialogueController: Updating to next dialogue");
                     currentDialogue = dialogue;
                     dialogueUIController.updateDialogueUI(currentDialogue);
                 }
@@ -93,13 +91,7 @@ public class DialogueController : MonoBehaviour
         if (!found)
         {
             isInDialogue = false;
-            Debug.LogError("DialogueSet does not contain a dialogue with the name '" + selectedOption.GetComponent<DialogueOption>().nextDialogueName + "'");
+            Debug.LogError("DialogueSet does not contain a dialogue with the name '" + selectedOption.nextDialogueName + "'");
         }
-    }
-
-    private void onDisable()
-    {
-        GameController.onDialogueStart -= handleDialogueStart;
-        DialogueUIController.onDialogueOptionSelected -= handleDialogueOptionSelected;
     }
 }

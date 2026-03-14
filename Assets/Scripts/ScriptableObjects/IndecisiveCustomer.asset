@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7622f66c4b2c1dc49ab4513eff0bdb1f, type: 3}
   m_Name: IndecisiveCustomer
   m_EditorClassIdentifier: 
-  customerType: 0
+  customerType: 1
   dialogues:
   - NPCLine:
     - Hi. Emmm........

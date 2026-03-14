@@ -71,7 +71,6 @@ public class PlayerController : MonoBehaviour
         InteractableStrawberry.OnPickUpStrawberry += PickUpStrawberry;
         InteractableVanilla.OnPickUpVanilla += PickUpVanilla;
         InteractableTrashBin.OnPickUpTrashBin += Trashcan;
-        GameController.OnOrderCompleted += Trashcan;
     }
 
 
@@ -239,7 +238,16 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
+    public void Clear()
+    {
+        _currentStage = IcecreamStage.None;
+        _currentFlavor = IcecreamFlavor.None;
+        _currentContainer = ContainerType.None;
+        _cupIcecream.SetActive(false);
+        _coneIcecream.SetActive(false);
+        _cupIcecreamIcecream.SetActive(false);
+        _coneIcecreamIcecream.SetActive(false);
+    }
     private void Trashcan()
     {
         if(_currentStage == IcecreamStage.None)
@@ -247,13 +255,8 @@ public class PlayerController : MonoBehaviour
             OnDisplayWarning?.Invoke("You don't have anything to throw away!");
             return;
         }
-        _currentStage = IcecreamStage.None;
-        _cupIcecream.SetActive(false);
-        _coneIcecream.SetActive(false);
-        _cupIcecreamIcecream.SetActive(false);
-        _coneIcecreamIcecream.SetActive(false);
+        Clear();
     }
-
     public ContainerType GetCurrentContainer()
     {
         if (_currentStage == IcecreamStage.Container || _currentStage == IcecreamStage.Finished)

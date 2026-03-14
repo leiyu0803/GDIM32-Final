@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7622f66c4b2c1dc49ab4513eff0bdb1f, type: 3}
   m_Name: RegularCustomer
   m_EditorClassIdentifier: 
+  customerType: 2
   dialogues:
   - NPCLine:
-    - Hi. {{GameController._orderFlavour}} in {{GameController._orderContainer}}.
+    - Hi. {{DialogueController.flavorToAdd}} in {{DialogueController.containerToAdd}}.
     dialogueOptions:
     - optionText:
       - Sure.
       nextDialogueName: endOfDialogue
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 3
+      containerToAdd: 2
     name: startOfDialogue
   - NPCLine: []
     dialogueOptions: []
