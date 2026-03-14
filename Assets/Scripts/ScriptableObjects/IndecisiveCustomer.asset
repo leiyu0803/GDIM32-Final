@@ -27,7 +27,7 @@ MonoBehaviour:
       flavorToAdd: 0
       containerToAdd: 0
     - optionText:
-      - Need reccomendations?
+      - Need recommendations?
       nextDialogueName: FlavorSelection
       createEvent: 0
       changeFlavor: 0
