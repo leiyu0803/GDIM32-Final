@@ -80,6 +80,7 @@ Put your individual final Devlog here.
 
 [Lights](https://free3d.com/3d-model/ceiling-light-41651.html)
 [Low Poly Wind](https://assetstore.unity.com/packages/vfx/shaders/low-poly-wind-182586)
+[Get Out SFX](https://www.myinstants.com/en/instant/tuco-get-out-30566/)
 
 
 
