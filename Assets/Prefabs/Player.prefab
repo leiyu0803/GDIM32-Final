@@ -243,11 +243,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1991848328947090019}
-  - component: {fileID: 8361173165499846626}
   - component: {fileID: 2353779917059793996}
   - component: {fileID: 4603550704666796710}
   - component: {fileID: 3124538705540105113}
   - component: {fileID: 3356730418297905194}
+  - component: {fileID: 7597054421400998791}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -271,32 +271,6 @@ Transform:
   - {fileID: 524159437196262976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -157.522, z: 0}
---- !u!143 &8361173165499846626
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4060503175347027161}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.8
-  m_Radius: 0.3
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &2353779917059793996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,8 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3891a4d9c7524409c9bc6d0d794367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 8361173165499846626}
   speed: 2
+  rb: {fileID: 3356730418297905194}
 --- !u!114 &4603550704666796710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +309,10 @@ MonoBehaviour:
   _coneIcecream: {fileID: 3207627560161678467}
   _cupIcecreamIcecream: {fileID: 8051467360093607801}
   _coneIcecreamIcecream: {fileID: 8244274679836984473}
+  _cupSound: {fileID: 0}
+  _coneSound: {fileID: 0}
+  _icecreamSound: {fileID: 0}
+  _trashSound: {fileID: 0}
   _currentStage: 0
   _currentFlavor: 0
   _currentContainer: 0
@@ -375,8 +353,31 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 68
+  m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!136 &7597054421400998791
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4060503175347027161}
+  m_Material: {fileID: 13400000, guid: 68c9eb839cd8bd14bb46a72b32b64c2d, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &6780545441779683508
 GameObject:
   m_ObjectHideFlags: 0

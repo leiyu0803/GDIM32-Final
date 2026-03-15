@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1991848328947090019, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18448
+      value: 0.824
       objectReference: {fileID: 0}
     - target: {fileID: 1991848328947090019, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
       propertyPath: m_LocalPosition.z
@@ -536,6 +536,14 @@ PrefabInstance:
     - target: {fileID: 1991848328947090019, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353779917059793996, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2353779917059793996, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
+      propertyPath: controller
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4060503175347027161, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
       propertyPath: m_Name
@@ -1056,8 +1064,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.8505768, z: 1}
+  m_Center: {x: 0, y: 0.42528868, z: 0}
 --- !u!23 &261371304
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1253,8 +1261,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000001, y: 4.938847, z: 1}
+  m_Center: {x: 0, y: 1.0209496, z: 0}
 --- !u!23 &303727889
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2379,8 +2387,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000001, y: 3.5071802, z: 1}
+  m_Center: {x: 0, y: 0.20263316, z: 0}
 --- !u!23 &635620484
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2440,7 +2448,7 @@ Transform:
   m_GameObject: {fileID: 635620481}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7041967, y: 6.0966077, z: 4.6801453}
+  m_LocalPosition: {x: 1.7041967, y: 6.667, z: 4.6801453}
   m_LocalScale: {x: 7.275842, y: 0.8700778, z: 0.55303}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4136,8 +4144,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.293667, y: 2.4438603, z: 1}
+  m_Center: {x: 0.115674585, y: 0.39828935, z: 0}
 --- !u!23 &1369636643
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4335,8 +4343,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 4.3630266, z: 2.0740342}
+  m_Center: {x: 0, y: 0.6793127, z: -0.07348252}
 --- !u!23 &1400903383
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5330,7 +5338,7 @@ GameObject:
   - component: {fileID: 1911599706}
   m_Layer: 0
   m_Name: Collision (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5354,8 +5362,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3517753, y: 1, z: 2.0059876}
+  m_Center: {x: 0.023170521, y: 0, z: -0.10760582}
 --- !u!23 &1911599707
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5415,7 +5423,7 @@ Transform:
   m_GameObject: {fileID: 1911599704}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7041967, y: 4.4086075, z: 5.8171453}
+  m_LocalPosition: {x: 1.7041967, y: 5.353, z: 5.8171453}
   m_LocalScale: {x: 7.275842, y: 0.65696, z: 1.991074}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5511,15 +5519,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Info
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 03a034cc66c63604e954ad18eeae97b7, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 03a034cc66c63604e954ad18eeae97b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2164260863
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    rgba: 2583691263
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.6}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
