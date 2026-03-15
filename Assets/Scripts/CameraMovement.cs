@@ -5,7 +5,7 @@ public class CameraMovement : MonoBehaviour
 	[SerializeField]
 	private float _mouseSensitivity = 100f;
     public Transform playerBody;
-
+    [SerializeField] float maxAngle;
     private float xRotation = 0f;
     private void Start()
     {
@@ -24,7 +24,7 @@ public class CameraMovement : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * _mouseSensitivity * Time.deltaTime;
         playerBody.Rotate(Vector3.up * mouseX);
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -60f, 60f);// limit the angle
+        xRotation = Mathf.Clamp(xRotation, -maxAngle, 60);// limit the angle
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 }
