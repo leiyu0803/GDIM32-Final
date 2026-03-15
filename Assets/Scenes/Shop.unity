@@ -539,11 +539,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2353779917059793996, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
       propertyPath: speed
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2353779917059793996, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
       propertyPath: controller
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3356730418297905194, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
+      propertyPath: m_Drag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3356730418297905194, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
+      propertyPath: m_AngularDrag
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4060503175347027161, guid: 1634b0b1fede8284f8bef72b906f7583, type: 3}
       propertyPath: m_Name
