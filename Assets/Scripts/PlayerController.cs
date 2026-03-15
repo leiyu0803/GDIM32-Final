@@ -51,6 +51,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject _cupIcecreamIcecream;
     [SerializeField] GameObject _coneIcecreamIcecream;
 
+    [SerializeField] AudioSource _cupSound;
+    [SerializeField] AudioSource _coneSound;
+    [SerializeField] AudioSource _icecreamSound;
+    [SerializeField] AudioSource _trashSound;
+
 
     public IcecreamStage _currentStage = IcecreamStage.None;
     public IcecreamFlavor _currentFlavor;
@@ -130,6 +135,7 @@ public class PlayerController : MonoBehaviour
             _currentContainer = ContainerType.Cone;
             _currentStage = IcecreamStage.Container;
             _coneIcecream.SetActive(true);
+            _coneSound.Play();
         }
         else if (_currentStage == IcecreamStage.Container)
         {
@@ -148,6 +154,7 @@ public class PlayerController : MonoBehaviour
             _currentContainer = ContainerType.Cup;
             _currentStage = IcecreamStage.Container;
             _cupIcecream.SetActive(true);
+            _cupSound.Play();
         }
         else if (_currentStage == IcecreamStage.Container)
         {
@@ -165,6 +172,7 @@ public class PlayerController : MonoBehaviour
         {
             _currentFlavor = IcecreamFlavor.Grape;
             _currentStage = IcecreamStage.Finished;
+            _icecreamSound.Play();
             if (_currentContainer == ContainerType.Cup)
             {
                 _cupIcecreamIcecream.SetActive(true);
@@ -191,6 +199,7 @@ public class PlayerController : MonoBehaviour
         {
             _currentFlavor = IcecreamFlavor.Strawberry;
             _currentStage = IcecreamStage.Finished;
+            _icecreamSound.Play();
             if (_currentContainer == ContainerType.Cup)
             {
                 _cupIcecreamIcecream.SetActive(true);
@@ -217,6 +226,7 @@ public class PlayerController : MonoBehaviour
         {
             _currentFlavor = IcecreamFlavor.Blood;
             _currentStage = IcecreamStage.Finished;
+            _icecreamSound.Play();
             if (_currentContainer == ContainerType.Cup)
             {
                 _cupIcecreamIcecream.SetActive(true);
@@ -255,6 +265,7 @@ public class PlayerController : MonoBehaviour
             OnDisplayWarning?.Invoke("You don't have anything to throw away!");
             return;
         }
+        _trashSound.Play();
         Clear();
     }
     public ContainerType GetCurrentContainer()

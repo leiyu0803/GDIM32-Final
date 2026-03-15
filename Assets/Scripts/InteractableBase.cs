@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class InteractableBase : MonoBehaviour
 {
+    [SerializeField] AudioSource InteractSound;
     [SerializeField] bool _isActive = true;
     private void OnTriggerEnter(Collider other)
     {
@@ -28,7 +29,13 @@ public abstract class InteractableBase : MonoBehaviour
         _isActive = false;
     }
 
-    public abstract void Interact();
+    public virtual void Interact()
+    {
+        if (InteractSound != null)
+        {
+            InteractSound.Play();
+        }
+    }
 
 
     /*[SerializeField] private LayerMask _lineOfSightLayers;

@@ -7,6 +7,7 @@ public class InteractableCups : InteractableBase
 
     public override void Interact()
 	{
+        base.Interact();
         OnPickUpCups?.Invoke();
     }
 }

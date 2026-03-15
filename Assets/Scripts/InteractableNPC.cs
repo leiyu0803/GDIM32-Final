@@ -15,6 +15,7 @@ public class InteractableNPC : InteractableBase
 
     public override void Interact()
     {
+        base.Interact();
         OnNPC?.Invoke(gameObject);
     }
 

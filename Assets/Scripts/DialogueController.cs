@@ -16,6 +16,11 @@ public class DialogueController : MonoBehaviour
     public static IcecreamFlavor flavorToAdd = 0;
     public static ContainerType containerToAdd = 0;
 
+    [SerializeField] AudioSource GetOut;
+
+    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] CameraMovement cameraMovement;
+
     // magic-string constants make refactoring easier and avoid typos
     private const string StartKey = "startOfDialogue";
     private const string EndKey = "endOfDialogue";
@@ -28,6 +33,8 @@ public class DialogueController : MonoBehaviour
 
     private void handleDialogueStart(GameObject NPC)
     {   
+        playerMovement.enabled = false;
+        cameraMovement.enabled = false;
         currentDialogueSet = NPC.GetComponent<NPCDialogue>()._dialogueSet;
         flavorToAdd = 0;
         containerToAdd = 0;
@@ -76,8 +83,11 @@ public class DialogueController : MonoBehaviour
                     Debug.Log("DialogueController: End of dialogue reached");
                     dialogueUIController.destroyDialogueUI();
                     bool isorder = currentDialogueSet.customerType != NPCType.DesruptiveCostumer;
+                    if (!isorder)GetOut.Play();
                     onDialogueEnd?.Invoke(isorder, flavorToAdd, containerToAdd);
                     isInDialogue = false;
+                    playerMovement.enabled = true;
+                    cameraMovement.enabled = true;
                 }
                 else
                 {

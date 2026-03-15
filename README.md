@@ -68,7 +68,8 @@ Put your individual final Devlog here.
 ### Allen Gu
 Put your individual final Devlog here.
 
->>>>>>> 1d52254fe2dbeba926a5445c8dff665668a9c1c0
+
+
 ## Open-Source Assets
 [Skybox Series Free - Avionx](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
 
@@ -79,8 +80,10 @@ Put your individual final Devlog here.
 [Simple Low Poly Nature Pack](https://assetstore.unity.com/packages/3d/environments/landscapes/simple-low-poly-nature-pack-157552)
 
 [Lights](https://free3d.com/3d-model/ceiling-light-41651.html)
+
 [Low Poly Wind](https://assetstore.unity.com/packages/vfx/shaders/low-poly-wind-182586)
+
 [Get Out SFX](https://www.myinstants.com/en/instant/tuco-get-out-30566/)
 
-
+[BGM and other SFX](https://pixabay.com/)
 

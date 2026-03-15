@@ -9,6 +9,7 @@ public class InteractableTrashBin: InteractableBase
 
     public override void Interact()
     {
+        base.Interact();
         OnPickUpTrashBin?.Invoke();
     }
 }

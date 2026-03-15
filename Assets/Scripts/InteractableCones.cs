@@ -7,6 +7,7 @@ public class InteractableCones : InteractableBase
 
     public override void Interact()
 	{
+        base.Interact();
         OnPickUpCones?.Invoke();
     }
 }
