@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum IcecreamStage
 {
-    None,
+    Empty,
     Container,
     Finished
 }
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource _trashSound;
 
 
-    public IcecreamStage _currentStage = IcecreamStage.None;
+    public IcecreamStage _currentStage = IcecreamStage.Empty;
     public IcecreamFlavor _currentFlavor;
     public ContainerType _currentContainer;
     public static PlayerController Instance { get; private set; }
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
     private void PickUpCones()
     {
 
-        if (_currentStage == IcecreamStage.None)
+        if (_currentStage == IcecreamStage.Empty)
         {
             Debug.Log("Picked up cones");
             _currentContainer = ContainerType.Cone;
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
     private void PickUpCup()
     {
-        if (_currentStage == IcecreamStage.None)
+        if (_currentStage == IcecreamStage.Empty)
         {
             _currentContainer = ContainerType.Cup;
             _currentStage = IcecreamStage.Container;
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour
                 _coneIcecreamIcecream.GetComponent<Renderer>().material = _grapeMat;
             }
         }
-        else if (_currentStage == IcecreamStage.None)
+        else if (_currentStage == IcecreamStage.Empty)
         {
             OnDisplayWarning?.Invoke("You need to pick up a container first!");
         }
@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
                 _coneIcecreamIcecream.GetComponent<Renderer>().material = _strawberryMat;
             }
         }
-        else if (_currentStage == IcecreamStage.None)
+        else if (_currentStage == IcecreamStage.Empty)
         {
             OnDisplayWarning?.Invoke("You need to pick up a container first!");
         }
@@ -238,7 +238,7 @@ public class PlayerController : MonoBehaviour
                 _coneIcecreamIcecream.GetComponent<Renderer>().material = _bloodMat;
             }
         }
-        else if (_currentStage == IcecreamStage.None)
+        else if (_currentStage == IcecreamStage.Empty)
         {
             OnDisplayWarning?.Invoke("You need to pick up a container first!");
         }
@@ -250,7 +250,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Clear()
     {
-        _currentStage = IcecreamStage.None;
+        _currentStage = IcecreamStage.Empty;
         _currentFlavor = IcecreamFlavor.None;
         _currentContainer = ContainerType.None;
         _cupIcecream.SetActive(false);
@@ -260,7 +260,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Trashcan()
     {
-        if(_currentStage == IcecreamStage.None)
+        if(_currentStage == IcecreamStage.Empty)
         {
             OnDisplayWarning?.Invoke("You don't have anything to throw away!");
             return;
