@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGround)
         {
-            rb.AddForce(Vector3.up * 3f, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
             isGround = false;
         }
     }
