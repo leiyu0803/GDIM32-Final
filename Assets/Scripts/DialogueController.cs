@@ -25,7 +25,17 @@ public class DialogueController : MonoBehaviour
     private const string StartKey = "startOfDialogue";
     private const string EndKey = "endOfDialogue";
 
-    void Start()
+    public static DialogueController Instance { get; private set; }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        Instance = this;
+    }
+        void Start()
     {
         GameController.onDialogueStart += handleDialogueStart;
         DialogueUIController.onDialogueOptionSelected += handleDialogueOptionSelected;
