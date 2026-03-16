@@ -60,14 +60,31 @@ I ended up using most of the parts written in my break-down. The break-down help
 
 ## Final Submission
 ### Group Devlog
-#### Model
+
+#### MVC
+
+##### Model
+
 DialogueSet.cs is a scriptable object that stores the dialogue data, including all the branchings and if changing the order.
-#### View
+##### View
 DialogueUIController.cs is a UI controller that controls all the UIs related to the dialgoue system. It converts the dialogue data into the form viewable form to player and displays it. It also controls the option UI.
-#### Control
+##### Control
 DialogueController.cs is the code that controls the dialgoue logic and handles the dialogue process.
+
+### Singleton
+
+We use singleton in GameController, PlayerController and DialogueController.
+
+#### Finite State Machine
+
+We use Finite State Machine in PlayerController, when player preparing ice cream. Player can go across three state, Empty, Container, and Finished. The state will go back to Empty if player interact with trashcan.
+
+#### Inheritance & Polymorphism
+
+All interactable object, include cup, cone, trashcan, ice-cream, and NPC are Inherited from a IntercatableBase class, contains if player is looking at them.  Each interactable object has different function, so we rewrite the Interact function.
+
 ### Haoyi Zhang
-Put your individual final Devlog here.
+I created three NPC prefab, add them the function that can follow the waypoint in the map. I changed GameController so NPC can spawn and make order. I changed UI and DialogueUIController so that dialogue can be displayed on the screen. I changed PlayerMovement and collision in the sense so player now can jump. I added most of the SFX and make them function. I fixed some spelling mistake in ScriptableObject with Pengcheng.
 ### Pengcheng Qi
 Put your individual final Devlog here.
 ### Allen Gu
@@ -75,7 +92,7 @@ I wrote DialogueSet.cs, DialogueController.cs and DialogueUIController.cs, edite
 
 
 
-## Open-Source Assets
+## Assets
 [Skybox Series Free - Avionx](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)
 
 [Ice Cream Parlor - BrimanFunkman](https://sketchfab.com/3d-models/ice-cream-parlor-e508c4a4e3864aedbfe1e6a7f0f8d6ec)
