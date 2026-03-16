@@ -60,13 +60,18 @@ I ended up using most of the parts written in my break-down. The break-down help
 
 ## Final Submission
 ### Group Devlog
-Put your group Devlog here.
+#### Model
+DialogueSet.cs is a scriptable object that stores the dialogue data, including all the branchings and if changing the order.
+#### View
+DialogueUIController.cs is a UI controller that controls all the UIs related to the dialgoue system. It converts the dialogue data into the form viewable form to player and displays it. It also controls the option UI.
+#### Control
+DialogueController.cs is the code that controls the dialgoue logic and handles the dialogue process.
 ### Haoyi Zhang
 Put your individual final Devlog here.
 ### Pengcheng Qi
 Put your individual final Devlog here.
 ### Allen Gu
-Put your individual final Devlog here.
+I wrote DialogueSet.cs, DialogueController.cs and DialogueUIController.cs, edited PlayerController.cs, GameController.cs, added and edited DialogueController GameObject, created and filled DisruptiveCustomer scriptable object, IndecisiveCustomer scriptable object and RegularCustomer scriptable object.
 
 
 
