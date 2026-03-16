@@ -12,43 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7622f66c4b2c1dc49ab4513eff0bdb1f, type: 3}
   m_Name: DisruptiveCustomer
   m_EditorClassIdentifier: 
+  customerType: 0
   dialogues:
   - NPCLine:
     - Hello
-    - A McFlurry ice cream :)
+    - A Play Station 5 and a copy of Resident Evil Requiem please
     dialogueOptions:
     - optionText:
-      - This is not McDonald.
+      - Oi, This Is A ICECREAM Shop.
       nextDialogueName: SoWhat
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     - optionText:
       - What is your promblem
       nextDialogueName: SoWhat
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     - optionText:
       - '*Keep silent*'
       nextDialogueName: Hey
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     - optionText:
       - Get out!
       nextDialogueName: endOfDialogue
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     name: startOfDialogue
   - NPCLine: []
     dialogueOptions: []
     name: endOfDialogue
   - NPCLine:
-    - Yeah... So what?
+    - So what?
     dialogueOptions:
     - optionText:
       - So I can't help you.
       nextDialogueName: Complain
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     - optionText:
       - Get out!
       nextDialogueName: endOfDialogue
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     name: SoWhat
   - NPCLine:
-    - How is an ice cream shop not selling ice cream?
+    - Please can you sell me a copy! The game has just released.
     dialogueOptions:
     - optionText:
       - Get out!
       nextDialogueName: endOfDialogue
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     name: Complain
   - NPCLine:
     - Are you deaf?
@@ -56,4 +92,9 @@ MonoBehaviour:
     - optionText:
       - Get out!
       nextDialogueName: endOfDialogue
+      createEvent: 0
+      changeFlavor: 0
+      changeContainer: 0
+      flavorToAdd: 0
+      containerToAdd: 0
     name: Hey
